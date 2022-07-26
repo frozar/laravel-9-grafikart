@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index']);
+
+Route::get('a-propos', [\App\Http\Controllers\PagesController::class, 'about'])->name("about");
 
 Route::group(["prefix" => "admin", "middleware" => "auth"], function () {
     Route::get("salut", function () {
@@ -32,3 +36,7 @@ Route::get('salut/{slug}-{id}', ["as" => "salut", function ($slug, $id) {
     // return "Lien : /salut/$slug-$id";
     return "Lien : " . route("salut", ["slug" => $slug, "id" => $id]);
 }])->where('slug', '[a-z0-9\-]+')->where('id', '[0-9]+');
+
+Route::controller(WelcomeController::class)->group(function () {
+    Route::get('welcome', 'index');
+});
