@@ -25,7 +25,7 @@ Route::group(["prefix" => "admin", "middleware" => "auth"], function () {
 
 Route::get('salut', function () {
     return "Salut les gens";
-});
+})->middleware("ip");
 
 Route::get('salut/{slug}-{id}', ["as" => "salut", function ($slug, $id) {
     // return "Slug : $slug, ID: $id";
