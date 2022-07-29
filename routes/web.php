@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,26 +16,37 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
 Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index']);
 
-Route::get('a-propos', [\App\Http\Controllers\PagesController::class, 'about'])->name("about");
+// Route::get('a-propos', [\App\Http\Controllers\PagesController::class, 'about'])->name("about");
 
-Route::group(["prefix" => "admin", "middleware" => "auth"], function () {
-    Route::get("salut", function () {
-        return "Salut les gens";
-    });
-});
+// Route::group(["prefix" => "admin", "middleware" => "auth"], function () {
+//     Route::get("salut", function () {
+//         return "Salut les gens";
+//     });
+// });
 
-Route::get('salut', function () {
-    return "Salut les gens";
-})->middleware("ip");
+// Route::get('salut', function () {
+//     return "Salut les gens";
+// })->middleware("ip");
 
-Route::get('salut/{slug}-{id}', ["as" => "salut", function ($slug, $id) {
-    // return "Slug : $slug, ID: $id";
-    // return "Lien : /salut/$slug-$id";
-    return "Lien : " . route("salut", ["slug" => $slug, "id" => $id]);
-}])->where('slug', '[a-z0-9\-]+')->where('id', '[0-9]+');
+// Route::get('salut/{slug}-{id}', ["as" => "salut", function ($slug, $id) {
+//     // return "Slug : $slug, ID: $id";
+//     // return "Lien : /salut/$slug-$id";
+//     return "Lien : " . route("salut", ["slug" => $slug, "id" => $id]);
+// }])->where('slug', '[a-z0-9\-]+')->where('id', '[0-9]+');
 
-Route::controller(WelcomeController::class)->group(function () {
-    Route::get('welcome', 'index');
-});
+// Route::controller(WelcomeController::class)->group(function () {
+//     Route::get('welcome', 'index');
+// });
+
+// Route::get('links/create', [\App\Http\Controllers\LinksController::class, 'create']);
+
+// Route::post('links/create', [\App\Http\Controllers\LinksController::class, 'store']);
+
+// Route::get('r/{id}', [\App\Http\Controllers\LinksController::class, 'show'])->where('id', '[0-9]+')->name("show");
+
+Route::resource('link', \App\Http\Controllers\LinksController::class, ["only" => ["create", "store"]]);
+// Route::get('r/{id}', [\App\Http\Controllers\LinksController::class, 'show'])->where('id', '[0-9]+')->name("show");
+Route::get('r/{link}', [\App\Http\Controllers\LinksController::class, 'show'])->where('link', '[0-9]+')->name("link.show");

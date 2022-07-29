@@ -139,9 +139,6 @@
                     @show
                 </div>
             </div>
-            <p class="lead">
-                <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
-            </p>
         </main>
 
         <footer class="mt-auto text-white-50">
