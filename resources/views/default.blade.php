@@ -1,25 +1,3 @@
-{{-- <!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-</head>
-
-<body>
-    @yield('content')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
-    </script>
-</body>
-
-</html> --}}
-
-
-
 <!doctype html>
 <html lang="en" class="h-100">
 
@@ -33,27 +11,29 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
 
-    {{-- <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/apple-touch-icon.png"
-        sizes="180x180">
+    {{-- <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/apple-touch-icon.png"
+        sizes="180x180"> --}}
     {{-- https://getbootstrap.com/docs/5.2/assets/img/favicons/favicon-32x32.png --}}
-    <link rel="icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32"
+    {{-- <link rel="icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32"
         type="image/png">
     <link rel="icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16"
-        type="image/png">
-    <link rel="manifest" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/manifest.json">
-    <link rel="mask-icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/safari-pinned-tab.svg"
-        color="#712cf9">
-    <link rel="icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/favicon.ico">
-    <meta name="theme-color" content="#712cf9">
+        type="image/png"> --}}
+    {{-- <link rel="manifest" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/manifest.json"> --}}
+    {{-- <link rel="mask-icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/safari-pinned-tab.svg"
+        color="#712cf9"> --}}
+    {{-- <link rel="icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/favicon.ico"> --}}
+    {{-- <meta name="theme-color" content="#712cf9"> --}}
 
 
     <style>
+        .without-shadow {
+            text-shadow: unset;
+        }
+
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -109,45 +89,35 @@
 
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/5.2/examples/cover/cover.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 
-<body class="d-flex h-100 text-center text-bg-dark">
+<body class="d-flex h-100 text-center without-shadow">
 
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="mb-auto">
+    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="mb-5">
             <div>
-                <h3 class="float-md-start mb-0">Cover</h3>
-                <nav class="nav nav-masthead justify-content-center float-md-end">
-                    <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link fw-bold py-1 px-0" href="#">Features</a>
-                    <a class="nav-link fw-bold py-1 px-0" href="#">Contact</a>
-                </nav>
+                <h1 class="float-md-start mb-0"><a href="/" style="text-decoration: none;">Raccourci
+                        a li</a></h1>
             </div>
         </header>
 
-        <main class="px-3">
-            <div class="row">
-                <div class="col-sm-8">
-                    @yield('content')
-                </div>
-
-                <div class="col-sm-4">
-                    {{-- @yield('sidebar') --}}
-
-                    @section('sidebar')
-                        <h3>Blablabla je suis une side bar</h3>
-                    @show
-                </div>
-            </div>
+        <main>
+            @yield('content')
         </main>
 
-        <footer class="mt-auto text-white-50">
-            <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a
-                    href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+        <footer class="mt-auto">
+            <p>Adaptation du tutoriel de <a
+                    href="https://www.youtube.com/playlist?list=PLjwdMgw5TTLUCpXVEehCHs99N7IWByS3i">Grafikart</a> pour
+                Laravel 9 par
+                <a href="https://www.linkedin.com/in/fabien-rozar-975a7a106/">Fabien ROZAR</a>
+            </p>
         </footer>
     </div>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    </script>
 
 </body>
 
