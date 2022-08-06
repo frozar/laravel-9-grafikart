@@ -90,9 +90,10 @@
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/5.2/examples/cover/cover.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="app.css">
 </head>
 
-<body class="d-flex h-100 text-center without-shadow">
+<body class="d-flex text-center without-shadow" style="min-height: 100%;">
 
     <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-5">
