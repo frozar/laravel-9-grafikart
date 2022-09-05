@@ -96,12 +96,7 @@
 <body class="d-flex text-center without-shadow" style="min-height: 100%;">
 
     <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="mb-5">
-            <div>
-                <h1 class="float-md-start mb-0"><a href="/" style="text-decoration: none;">Raccourci
-                        a li</a></h1>
-            </div>
-        </header>
+        @yield('header')
 
         <main>
             @yield('content')

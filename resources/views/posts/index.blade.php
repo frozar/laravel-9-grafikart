@@ -1,14 +1,11 @@
 @extends('default')
 
 @section('title')
-    Index raccourci
+    Index articles
 @endsection
 
 @section('header')
-    <header class="mb-5">
-        <h1 class="float-md-start mb-0"><a href="/" style="text-decoration: none;">Raccourci
-                a li</a></h1>
-    </header>
+    @include('posts.header')
 @endsection
 
 @section('content')
@@ -27,12 +24,16 @@
             </div>
         @endif
 
-        @if (0 < count($links))
-            <div class="mb-4">
-                <h1 class="mb-3">Raccourcis disponibles</h1>
-                <div
+        @if (0 < count($posts))
+            <div class="mb-2">
+                <h1 class="mb-3">Articles disponibles</h1>
+                @foreach ($posts as $post)
+                    <h1>{{ $post->title }}</h1>
+                    <p>{{ $post->slug }}</p>
+                    <p><a class="btn btn-primary" href="{{ route('news.edit', $post) }}">Editer</a></p>
+                @endforeach
+                {{-- <div
                     class="scrollbar-thumb:!bg-slate-300 scrollbar-thumb:!rounded scrollbar-track:!bg-slate-100 scrollbar-track:!rounded scrollbar:!h-1.5 scrollbar:!w-1.5 scrollbar:bg-transparent overflow-x-auto">
-                    {{-- <div style="overflow-x: auto;"> --}}
                     <table class="table table-hover table-bordered">
                         <thead>
                             <tr style="border-width: 0;">
@@ -42,14 +43,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($links as $link)
+                            @foreach ($posts as $post)
                                 <tr class="align-middle">
-                                    <td>{{ $link->url }}</td>
+                                    <td>{{ $post->url }}</td>
                                     <td><a
-                                            href="{{ route('link.show', ['link' => $link]) }}">{{ route('link.show', compact('link')) }}</a>
+                                            href="{{ route('post.show', ['post' => $post]) }}">{{ route('post.show', compact('post')) }}</a>
                                     </td>
                                     <td>
-                                        <a href={{ route('link.edit', compact('link')) }}>
+                                        <a href={{ route('post.edit', compact('post')) }}>
                                             <button type="button" class="btn p-0">
                                                 <i class="bi bi-pencil"></i>
                                             </button>
@@ -97,11 +98,11 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
+                </div> --}}
             </div>
         @endif
 
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <h2 class="mb-3">Raccourcir une URL</h2>
             <form action="{{ route('link.store') }}" method="POST" class="row g-2">
                 @csrf
@@ -121,6 +122,8 @@
                     <button type="submit" class="btn btn-success w-100">Raccourcir</button>
                 </div>
             </form>
-        </div>
+        </div> --}}
     </div>
+
+    <a class="btn btn-info mb-4" href={{ route('news.create') }}>Nouveau</a>
 @endsection

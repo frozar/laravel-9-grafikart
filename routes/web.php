@@ -15,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\LinksController::class, 'index']);
 
+Route::resource('news', \App\Http\Controllers\PostsController::class); //, ["only" => ["index", "store", "destroy", "edit", "update"]]);
+
 Route::resource('link', \App\Http\Controllers\LinksController::class, ["only" => ["index", "store", "destroy", "edit", "update"]]);
 Route::get('r/{link}', [\App\Http\Controllers\LinksController::class, 'show'])->where('link', '[0-9]+')->name("link.show");

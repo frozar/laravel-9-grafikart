@@ -4,6 +4,13 @@
     Index raccourci
 @endsection
 
+@section('header')
+    <header class="mb-5">
+        <h1 class="float-md-start mb-0"><a href="/" style="text-decoration: none;">Raccourci
+                a li</a></h1>
+    </header>
+@endsection
+
 @section('content')
     <div class="d-flex w-100 h-100 mx-auto flex-column">
         <div>
